@@ -9,7 +9,18 @@ export const loader = async ({ params }) => {
 const ProductPage = () => {
     const product = useLoaderData();
     console.log(product);
-    return <div>Testing product page.</div>;
+    return (
+        <div>
+            {product.title}
+            <br/>
+            {product.price}
+            <br/>
+            {product.description}
+            <br/>
+            {product.category}
+            <br/>
+        </div>
+    );
 };
 
 export default ProductPage;
