@@ -6,6 +6,7 @@ function App() {
     return (
         <>
             <div>Hello world</div>
+            <p>My name is June. Currently testing.</p>
         </>
     );
 }
