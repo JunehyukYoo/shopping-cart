@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
+import "../styles/navbar.css";
 
 const Navbar = () => {
     return (
         <>
             <div className="navbar">
-                <div>Icon goes here!</div>
-                <Link to={`/shop`}>Shop</Link>
-                <Link to={`/cart`}>Cart</Link>
+                <Link to={`/`}>ISC</Link>
+                <div className="navbar-links">
+                    <Link to={`/shop`}>Shop</Link>
+                    <Link to={`/cart`}>Cart</Link>
+                </div>
             </div>
         </>
     );

@@ -4,9 +4,10 @@ import "./index.css";
 
 import Root from "./routes/root.tsx";
 import ErrorPage from "./routes/ErrorPage.tsx";
-import Shop from "./routes/shop.tsx";
+import Shop, { loader as shopLoader } from "./routes/shop.tsx";
 import Index from "./routes/index.tsx";
 import Cart from "./routes/cart.tsx";
+import ProductPage, { loader as productLoader } from "./routes/product.tsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -23,6 +24,12 @@ const router = createBrowserRouter([
             {
                 path: "/shop",
                 element: <Shop />,
+                loader: shopLoader,
+            },
+            {
+                path: "/shop/product/:id",
+                element: <ProductPage />,
+                loader: productLoader,
             },
             {
                 path: "/cart",
