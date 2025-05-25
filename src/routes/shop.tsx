@@ -1,6 +1,8 @@
-import { useLoaderData, Link } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { getProducts } from "../api.ts";
-import type { Product } from "../types.tsx";
+import { ProductItem } from "../components/Items.tsx";
+import type { Product } from "../types.ts";
+import "../styles/items.css";
 
 // TODO: Fetch product data from the FakeStoreAPI
 export const loader = async () => {
@@ -12,18 +14,12 @@ const Shop = () => {
     const products = useLoaderData() as Product[];
     return (
         <>
-            <h2>Shop stuff goes here.</h2>
+            <h2 style={{alignSelf: "center"}}>Products Page</h2>
             {products ? (
-                <div>
-                    {products.map((p: Product) => {
-                        return (
-                            <Link to={`/shop/product/${p.id}`} key={p.id}>
-                                <img src={p.image} alt={p.title} />
-                                <h3>{p.title}</h3>
-                                <p>${p.price}</p>
-                            </Link>
-                        );
-                    })}
+                <div className="shop-container">
+                    {products.map((p: Product) => (
+                        <ProductItem product={p} key={p.id} />
+                    ))}
                 </div>
             ) : (
                 <p>Oops, something went wrong.</p>
